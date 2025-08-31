@@ -1,0 +1,20 @@
+{
+	"id": "fallout",
+	"title": "Fallout",
+	"description": "Eric's homebrew Fallout system",
+	"version": "0.1.0",
+	"authors": [
+		{
+			"name": "Eric Rhodes",
+			"email": "e_rhodes@live.com"
+		}
+	],
+	"url": "https://github.com/erhodes/Fallout-Foundry",
+	"compatibility": {
+		"minimum": "12",
+		"verified": "13"
+	},
+	"esmodules":[
+		"module/fallout.js"
+	]
+}

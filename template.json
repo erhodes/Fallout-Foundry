@@ -1,0 +1,109 @@
+{
+	"Actor": {
+		"types": ["player", "npc"],
+		"templates": {
+			"common": {
+				"vitality": 1,
+				"special": {
+					"strength": {
+						"value": 1,
+						"label": "Strength"
+					},
+					"perception": {
+						"value": 1,
+						"label": "Perception"
+					},
+					"endurance": {
+						"value": 1,
+						"label": "Endurance"
+					},
+					"charisma": {
+						"value": 1,
+						"label": "Charisma"
+					},
+					"intelligence": {
+						"value": 1,
+						"label": "Intelligence"
+					},
+					"agility": {
+						"value": 1,
+						"label": "Agility"
+					},
+					"luck": {
+						"value": 1,
+						"label": "Luck"
+					}
+				},
+				"attributes": {
+					"damage": {
+						"value": "0"
+					},
+					"toughness": {
+						"value": "0"
+					}
+				},
+				"skills": {
+					"Athletics": {
+						"value": "2"
+					},
+					"Engineering": {
+						"value": "2"
+					},
+					"Guns": {
+						"value": "2"
+					},
+					"Medicine": {
+						"value": "2"
+					},
+					"Melee": {
+						"value": "2"
+					},
+					"Sabotage": {
+						"value": "2"
+					},
+					"Science": {
+						"value": "2"
+					},
+					"Society": {
+						"value": "2"
+					},
+					"Speech": {
+						"value": "2"
+					},
+					"Survival": {
+						"value": "2"
+					},
+					"Throwing": {
+						"value": "2"
+					}
+				}
+			}
+		},
+		"player": {
+			"templates": ["common"]
+		},
+		"npc": {
+			"templates": ["common"]
+		}
+	},
+	"Item": {
+		"types": ["weapon", "armor"],
+		"templates": {
+			"common": {
+				"description": {
+					"value": "An item"
+				},
+				"load": 1,
+				"value": 1
+			}
+		},
+		"weapon": {
+			"templates": ["common"],
+			"damage": "1/2/3"
+		},
+		"armor": {
+			"templates": ["common"],
+			"durability": 3
+		}
+	}
+}

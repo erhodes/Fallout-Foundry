@@ -1,0 +1,32 @@
+<form autocomplete="off">
+	<header class="sheet-header">
+		<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+		<h1><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+	</header>
+
+
+	<h1>{{actor.name}}</h1>
+
+
+ 	<h1>
+ 		SPECIAL
+ 	</h1>
+	<div class="abilities flexrow">
+        {{#each data.system.special as |ability key|}}
+       		<div class="ability flexcol flex-group-center">
+				<label for="data.system.special.{{key}}.label" class="resource-label">{{ability.label}}</label>
+				<span>{{numberFormat ability.value}}</span>
+          </div>
+        {{/each}}
+ 	</div>
+
+ 	<h1>
+ 		Skills
+ 	</h1>
+ 	<div>
+ 		{{#each data.system.skills as |skill key|}}
+ 			<label for "data.system.skill.{{key}}.value">{{key}}</label>
+ 			<span>{{numberFormat skill.value}}</span>
+ 		{{/each}}
+ 	</div>
+</form>
