@@ -1,3 +1,7 @@
+/**
+ * Extend the base Actor document
+ * @extends {Actor}
+ */
 export class FalloutActor extends Actor {
 
 	prepareData() {
@@ -5,7 +9,7 @@ export class FalloutActor extends Actor {
 		const val = this.system.vitality;
 		const strength = this.system.special.strength.value;
 
-		console.log("preparing actor data " + val + " and strength is " + strength);
+		console.log("preparing actor data " + val + " and " + this.name);
 		super.prepareData();
 	}
 

@@ -16,7 +16,7 @@
        		<div class="ability flexcol flex-group-center">
 				<label for="data.system.special.{{key}}.label" class="resource-label">{{ability.label}}</label>
 				<span>{{numberFormat ability.value}}</span>
-          </div>
+          	</div>
         {{/each}}
  	</div>
 
@@ -28,5 +28,16 @@
  			<label for "data.system.skill.{{key}}.value">{{key}}</label>
  			<span>{{numberFormat skill.value}}</span>
  		{{/each}}
+ 	</div>
+ 	<h1>
+ 		Status
+ 	</h1>
+ 	<p>
+ 		Health
+ 	</p>
+ 	<div class="flexrow">
+ 		<label for "actor.system.attributes.damage">Damage Taken</label>
+ 		<input type="text" name="actor.system.attributes.damage" value="{{actor.system.attributes.damage}}" data-dtype="Number"/>
+ 		<span>/{{numberFormat data.system.attributes.health.value}}</span>
  	</div>
 </form>

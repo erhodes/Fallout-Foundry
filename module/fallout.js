@@ -1,47 +1,33 @@
 //Import Modules
 import { FalloutActor } from "./actor.js";
 import { FalloutItem } from "./item.js";
+import { FalloutActorSheet } from "./sheets/actor-sheet.js"
 
-class FalloutSystem {
-
-
-	// A method to register our custom sheets
-	static registerSheets() {
-		foundry.documents.collections.Actors.registerSheet("fallout", FalloutActorSheet, {
-			types: ["npc"],
-			makeDefault: true
-		});
-	}
-}
-
-class FalloutActorSheet extends foundry.appv1.sheets.ActorSheet {
-	/** @override */
-	getData() {
-		const context = super.getData();
-
-		const actorData = context.data.system;
-		const str = actorData.vitality;
-
-		console.log("getting sheet data strength " + str);
-
-		return context;
-	}
-
-	get template() {
-		return 'systems/fallout/templates/actor-sheet.html';
-	}
-}
 
 Hooks.on("init", () => {
 	console.log("init")
+
+	game.fallout = {
+		FalloutActor,
+		FalloutItem
+	};
+
 	// Register our custom document classes with the Foundry system.
 	CONFIG.Actor.documentClass = FalloutActor;
 	CONFIG.Item.documentClass = FalloutItem;
 
 	CONFIG.Actor.sheetClass = FalloutActorSheet;
+
+	// Register sheet application classes
+	foundry.documents.collections.Actors.unregisterSheet('core', foundry.appv1.sheets.ActorSheet);
+		foundry.documents.collections.Actors.registerSheet("fallout", FalloutActorSheet, {
+			types: ["npc"],
+			makeDefault: true
+		});
+
+	// return preloadHandlebarsTemplates();
 });
 
 Hooks.on("ready", () => {
-	FalloutSystem.registerSheets();
 	console.log("Fallout system is ready!");
 });
