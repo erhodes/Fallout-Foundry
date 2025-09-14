@@ -4,10 +4,6 @@
 		<h1><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
 	</header>
 
-
-	<h1>{{actor.name}}</h1>
-
-
  	<h1>
  		SPECIAL
  	</h1>
@@ -37,12 +33,12 @@
  	</p>
  	<div class="resource flexrow">
  		<label for "system.attributes.damage.value">Damage Taken</label>
- 		<input type="text" name="system.attributes.damage.value" value="{{system.attributes.damage.value}}" data-dtype="Number"/>
+ 		<input type="text" id="damage-taken" name="system.attributes.damage.value" value="{{system.attributes.damage.value}}" data-dtype="Number"/>
  		<span>/{{numberFormat system.attributes.health.value}}</span>
  	</div>
 
 	<div>
-		<input type="text" value="0" data-dtype="Number"/>
+		<input type="text" id="damage-entry" value="0" data-dtype="Number"/>
 		<button type="button" class="deal-damage">Deal Damage</button>
 	</div>
 

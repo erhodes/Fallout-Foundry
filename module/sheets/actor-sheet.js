@@ -30,7 +30,6 @@ export class FalloutActorSheet extends foundry.appv1.sheets.ActorSheet {
 	    // // Add the actor's data to context.data for easier access, as well as flags.
 	    context.system = actorData.system;
 	    // context.flags = actorData.flags;
-
 		return context;
 	}
 
@@ -44,12 +43,20 @@ export class FalloutActorSheet extends foundry.appv1.sheets.ActorSheet {
 
 		html.on('click', '.deal-damage', this._onDealDamage.bind(this));
 
-		// html.on('click', '.deal-damage', (ev) => {
-		// 	console.log("Deal damage button clicked");
-		// })
+		
+		this.element.find('#damage-taken').css('color', this.actor.system.bloodied ? 'red' : 'black');
 	}
 
 	_onDealDamage(event) {
 		console.log("Deal damage button clicked");
+		const damageValue = this.element.find('#damage-entry').val();
+		console.log(`Damage value entered: ${damageValue}`);
+		// Here you would add the logic to apply the damage to the actor's health
+		console.log(this);
+		this.actor.applyDamage(Number(damageValue));
+		
+		const damageTakenField = this.element.find('#damage-taken');
+		damageTakenField.css('color', this.actor.system.bloodied ? 'red' : 'black');
+		damageTakenField.val(this.actor.system.attributes.damage.value);
 	}
 }

@@ -3,8 +3,7 @@
 		"types": ["player", "npc"],
 		"templates": {
 			"common": {
-				"vitality": 1,
-				"stamina": {
+				"stress": {
 		          "value": 5,
 		          "min": 0,
 		          "max": 5
