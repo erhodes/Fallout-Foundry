@@ -101,8 +101,12 @@
 				"description": {
 					"value": "An item"
 				},
-				"load": 1,
-				"value": 1
+				"load": {
+					"value": 1
+				},
+				"value": {
+					"value": 10
+				}
 			}
 		},
 		"weapon": {
@@ -111,7 +115,11 @@
 		},
 		"armor": {
 			"templates": ["common"],
-			"durability": 3
+			"durability": 3,
+			"toughness": 0,
+			"damage": {
+				"value": 0
+			}
 		}
 	}
 }

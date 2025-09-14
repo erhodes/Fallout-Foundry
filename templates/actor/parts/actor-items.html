@@ -1,0 +1,23 @@
+<o1 class='items-list'>
+    <li class='item flexrow'>
+        <div class='item-name'>Items</div>
+    </li>
+    {{#each items as |item|}}
+        <div class='item' data-item-id='{{item.id}}'>
+            <!-- <img src='{{item.img}}' title='{{item.name}}' /> -->
+            <h3>{{item.name}}</h3>
+            <div>{{item.type}}</div>
+            <div>load: {{ item.system.load }}</div>
+            {{#if (eq item.type "armor")}}
+                <div>
+                    Durability: {{item.system.damage.value}} / {{item.system.durability}}
+                </div>
+            {{/if}}
+            {{#if (eq item.type "weapon")}}
+                <div>
+                    Damage: {{item.system.damage}}
+                </div>
+            {{/if}}
+        </div>
+    {{/each}}
+</o1>

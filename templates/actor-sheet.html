@@ -4,50 +4,64 @@
 		<h1><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
 	</header>
 
- 	<h1>
- 		SPECIAL
- 	</h1>
-	<div class="abilities flexrow">
-        {{#each actor.system.special as |ability key|}}
-       		<div class="ability flexcol flex-group-center">
-				<label for="system.special.{{key}}.label" class="resource-label">{{ability.label}}</label>
-				<span>{{numberFormat ability.value}}</span>
-          	</div>
-        {{/each}}
- 	</div>
+	<nav class="sheet-tabs tabs" data-group="primary">
+		<a class="item" data-tab="items">Items</a>
+		<a class="item" data-tab="attributes">Attributes</a>
+	</nav>
 
- 	<h1>
- 		Skills
- 	</h1>
- 	<div>
- 		{{#each system.skills as |skill key|}}
- 			<label for "system.skills.{{key}}.value">{{key}}</label>
- 			<span>{{numberFormat skill.value}}</span>
- 		{{/each}}
- 	</div>
- 	<h1>
- 		Status
- 	</h1>
- 	<p>
- 		Health
- 	</p>
- 	<div class="resource flexrow">
- 		<label for "system.attributes.damage.value">Damage Taken</label>
- 		<input type="text" id="damage-taken" name="system.attributes.damage.value" value="{{system.attributes.damage.value}}" data-dtype="Number"/>
- 		<span>/{{numberFormat system.attributes.health.value}}</span>
- 	</div>
+	<section class="sheet-body">
+		<div class="tab attributes" data-group="primary" data-tab="attributes">
+			<h1>
+				SPECIAL
+			</h1>
+			<div class="abilities flexrow">
+				{{#each actor.system.special as |ability key|}}
+					<div class="ability flexcol flex-group-center">
+						<label for="system.special.{{key}}.label" class="resource-label">{{ability.label}}</label>
+						<span>{{numberFormat ability.value}}</span>
+					</div>
+				{{/each}}
+			</div>
 
-	<div>
-		<input type="text" id="damage-entry" value="0" data-dtype="Number"/>
-		<button type="button" class="deal-damage">Deal Damage</button>
-	</div>
+			<h1>
+				Skills
+			</h1>
+			<div>
+				{{#each system.skills as |skill key|}}
+					<label for "system.skills.{{key}}.value">{{key}}</label>
+					<span>{{numberFormat skill.value}}</span>
+				{{/each}}
+			</div>
+			<h1>
+				Status
+			</h1>
+			<p>
+				Health
+			</p>
+			<div class="resource flexrow">
+				<label for "system.attributes.damage.value">Damage Taken</label>
+				<input type="text" id="damage-taken" name="system.attributes.damage.value" value="{{system.attributes.damage.value}}" data-dtype="Number"/>
+				<span>/{{numberFormat system.attributes.health.value}}</span>
+			</div>
 
-	<div class="resource flex-group-center">
-        <label for="system.stress.value" class="resource-label">Stress</label>
-        <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.stress.value" value="{{system.stress.value}}" data-dtype="Number"/>
-          <span> / </span>
-          <input type="text" name="system.stress.max" value="{{system.stamina.max}}" data-dtype="Number"/>
-        </div>
-    </div>
+			<div>
+				<input type="text" id="damage-entry" value="0" data-dtype="Number"/>
+				<button type="button" class="deal-damage">Deal Damage</button>
+			</div>
+
+			<div class="resource flex-group-center">
+				<label for="system.stress.value" class="resource-label">Stress</label>
+				<div class="resource-content flexrow flex-center flex-between">
+				<input type="text" name="system.stress.value" value="{{system.stress.value}}" data-dtype="Number"/>
+				<span> / </span>
+				<input type="text" name="system.stress.max" value="{{system.stamina.max}}" data-dtype="Number"/>
+				</div>
+			</div>
+		</div>
+
+		<div class="tab items">
+			{{> "systems/fallout/templates/actor/parts/actor-items.html"}}
+		</div>
+	</section>
+ 	
 </form>

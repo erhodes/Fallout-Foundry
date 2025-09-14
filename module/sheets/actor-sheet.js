@@ -43,7 +43,7 @@ export class FalloutActorSheet extends foundry.appv1.sheets.ActorSheet {
 
 		html.on('click', '.deal-damage', this._onDealDamage.bind(this));
 
-		
+		//todo could this be done in the html?
 		this.element.find('#damage-taken').css('color', this.actor.system.bloodied ? 'red' : 'black');
 	}
 
